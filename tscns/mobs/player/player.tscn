@@ -1,0 +1,152 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://sprites/mobs/player/body.png" type="Texture" id=1]
+[ext_resource path="res://scripts/mobs/player/player.gd" type="Script" id=2]
+[ext_resource path="res://tscns/misc/trail.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tscns/misc/flashing_images.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sounds/souds/mobs/player_revive.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/souds/mobs/player_death.wav" type="AudioStream" id=6]
+[ext_resource path="res://sprites/controls/controls.png" type="Texture" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("spr:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/path = NodePath("spr:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "revive"
+tracks/0/type = "value"
+tracks/0/path = NodePath("spr:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "end"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:controls_checked")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="player" type="KinematicBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+
+[node name="spr" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="flashing_images" parent="spr" instance=ExtResource( 4 )]
+texture = ExtResource( 1 )
+time = 0.5
+cd = 0.05
+
+[node name="coll" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="timers" type="Node" parent="."]
+
+[node name="dash_timer" type="Timer" parent="timers"]
+wait_time = 0.25
+one_shot = true
+
+[node name="dash_cd_timer" type="Timer" parent="timers"]
+
+[node name="shoot_timer" type="Timer" parent="timers"]
+wait_time = 0.2
+one_shot = true
+
+[node name="sword_cd_timer" type="Timer" parent="timers"]
+one_shot = true
+
+[node name="trail" parent="." instance=ExtResource( 3 )]
+show_behind_parent = true
+position = Vector2( -268, -6 )
+default_color = Color( 1, 1, 1, 1 )
+gradient = SubResource( 2 )
+
+[node name="death_revive" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/death = SubResource( 4 )
+anims/revive = SubResource( 5 )
+
+[node name="sounds" type="Node" parent="."]
+
+[node name="revive" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource( 5 )
+bus = "SFX"
+
+[node name="death" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource( 6 )
+bus = "SFX"
+
+[node name="controls" type="Sprite" parent="."]
+position = Vector2( 0, -9.5 )
+scale = Vector2( 1, 1.21111 )
+texture = ExtResource( 7 )
+
+[node name="end" type="AnimationPlayer" parent="controls"]
+anims/end = SubResource( 6 )
+
+[connection signal="timeout" from="timers/dash_timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="timers/dash_cd_timer" to="." method="_on_dash_cd_timer_timeout"]
+[connection signal="timeout" from="timers/shoot_timer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="timers/sword_cd_timer" to="." method="_on_sword_cd_timer_timeout"]

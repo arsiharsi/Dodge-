@@ -1,0 +1,1032 @@
+[gd_scene load_steps=56 format=2]
+
+[ext_resource path="res://tscns/mobs/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/locs/game.gd" type="Script" id=2]
+[ext_resource path="res://tscns/misc/ad_watcher_sound_muter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fonts/GuildensternNbp.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://sprites/menu/en.png" type="Texture" id=5]
+[ext_resource path="res://fonts/RosencrantzNbp.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://tscns/shop/cosmetic_button.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sprites/mobs/player/body.png" type="Texture" id=8]
+[ext_resource path="res://sprites/mobs/player/zombie.png" type="Texture" id=9]
+[ext_resource path="res://sprites/mobs/player/santa.png" type="Texture" id=10]
+[ext_resource path="res://sprites/mobs/player/spaceship.png" type="Texture" id=11]
+[ext_resource path="res://sprites/mobs/player/cameraman.png" type="Texture" id=12]
+[ext_resource path="res://sprites/mobs/player/demon.png" type="Texture" id=13]
+[ext_resource path="res://sprites/mobs/player/space_dude.png" type="Texture" id=14]
+[ext_resource path="res://sprites/mobs/player/gods_soldier.png" type="Texture" id=15]
+[ext_resource path="res://sprites/mobs/player/camo.png" type="Texture" id=16]
+[ext_resource path="res://sprites/mobs/player/red_mist.png" type="Texture" id=17]
+[ext_resource path="res://sounds/dodge em all.wav" type="AudioStream" id=18]
+[ext_resource path="res://sounds/souds/menu/accept.wav" type="AudioStream" id=19]
+[ext_resource path="res://sounds/souds/menu/deny.wav" type="AudioStream" id=20]
+[ext_resource path="res://sprites/menu/sounds/sfx.png" type="Texture" id=21]
+[ext_resource path="res://sprites/menu/sounds/not_active.png" type="Texture" id=22]
+[ext_resource path="res://sprites/menu/sounds/music.png" type="Texture" id=23]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 512, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 300 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 54
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "def"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -5, -5 ), Vector2( 5, 5 ), Vector2( 5, -5 ), Vector2( -5, 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("name_of_game:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -5, -5 ), Vector2( -5, 5 ), Vector2( 5, -5 ), Vector2( -5, 5 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 100, 50 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 43
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "def"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("lbl:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 0, 1, 0.298039, 1 ), Color( 1, 0, 0.937255, 1 ), Color( 0, 0.0156863, 1, 1 ), Color( 0, 0.976471, 1, 1 ), Color( 1, 0, 0.537255, 1 ), Color( 0.898039, 1, 0, 1 ), Color( 0.219608, 1, 0, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=22]
+size = 36
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 40
+font_data = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 100, 30 )
+
+[sub_resource type="DynamicFont" id=26]
+size = 35
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=30]
+resource_name = "def"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.219608, 1, 0, 1 ), Color( 0.709804, 0, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 100, 30 )
+
+[sub_resource type="DynamicFont" id=27]
+size = 35
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=31]
+resource_name = "def"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.219608, 1, 0, 1 ), Color( 0.709804, 0, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 100, 30 )
+
+[sub_resource type="DynamicFont" id=32]
+size = 35
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 39
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=21]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "revive_em_all"
+} ]
+}
+
+[sub_resource type="DynamicFont" id=13]
+size = 49
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "def"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.196078, 0, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=15]
+size = 37
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=16]
+resource_name = "def"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.101961, 1, 0, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 50, 50 )
+
+[sub_resource type="DynamicFont" id=24]
+size = 26
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=25]
+size = 20
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../screen_cover:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("revive:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../screen_cover:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 0, 0, 0.478431 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "restart"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../screen_cover:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 0.48 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "kill_em_all"
+}, {
+"args": [  ],
+"method": "reload"
+} ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "revive"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../screen_cover:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 0.478431 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "kill_em_all"
+}, {
+"args": [  ],
+"method": "revive_em_all"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("revive:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../game:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../game:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_spawner"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../game:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../../game:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="game" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_vertical_guides_": [ 512.0 ]
+}
+
+[node name="corners" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="ceiling" type="StaticBody2D" parent="corners"]
+collision_layer = 5
+collision_mask = 5
+
+[node name="floor" type="StaticBody2D" parent="corners/ceiling"]
+collision_layer = 5
+collision_mask = 5
+
+[node name="spr_base" type="ColorRect" parent="corners/ceiling/floor"]
+margin_top = 590.0
+margin_right = 1024.0
+margin_bottom = 610.0
+color = Color( 0.521569, 0.521569, 0.521569, 1 )
+
+[node name="coll" type="CollisionShape2D" parent="corners/ceiling/floor"]
+position = Vector2( 512, 600 )
+shape = SubResource( 1 )
+
+[node name="spr_base" type="ColorRect" parent="corners/ceiling"]
+margin_top = -10.0
+margin_right = 1024.0
+margin_bottom = 10.0
+color = Color( 0.521569, 0.521569, 0.521569, 1 )
+
+[node name="coll" type="CollisionShape2D" parent="corners/ceiling"]
+position = Vector2( 512, 0 )
+shape = SubResource( 1 )
+
+[node name="l_wall" type="StaticBody2D" parent="corners"]
+collision_layer = 5
+collision_mask = 5
+
+[node name="spr_base" type="ColorRect" parent="corners/l_wall"]
+margin_left = -10.0
+margin_right = 10.0
+margin_bottom = 600.0
+color = Color( 0.52, 0.52, 0.52, 1 )
+
+[node name="coll" type="CollisionShape2D" parent="corners/l_wall"]
+position = Vector2( 0, 300 )
+shape = SubResource( 2 )
+
+[node name="r_wall" type="StaticBody2D" parent="corners"]
+position = Vector2( 1024, 0 )
+collision_layer = 5
+collision_mask = 5
+
+[node name="spr_base" type="ColorRect" parent="corners/r_wall"]
+margin_left = -10.0
+margin_right = 10.0
+margin_bottom = 600.0
+color = Color( 0.52, 0.52, 0.52, 1 )
+
+[node name="coll" type="CollisionShape2D" parent="corners/r_wall"]
+position = Vector2( 0, 300 )
+shape = SubResource( 2 )
+
+[node name="action" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="player" parent="action" instance=ExtResource( 1 )]
+position = Vector2( 512, 300 )
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2( 512, 300 )
+current = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camera_shake" type="AnimationPlayer" parent="cam"]
+
+[node name="timers" type="Node" parent="."]
+
+[node name="enemy_timer" type="Timer" parent="timers"]
+wait_time = 2.0
+
+[node name="camera_shake_timer" type="Timer" parent="timers"]
+
+[node name="add_difficulty_timer" type="Timer" parent="timers"]
+
+[node name="ad_watcher_sound_muter" parent="." instance=ExtResource( 3 )]
+
+[node name="fg" type="CanvasLayer" parent="."]
+
+[node name="menu" type="Control" parent="fg"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="name_of_game" type="Label" parent="fg/menu"]
+margin_left = 5.14819
+margin_top = -4.97253
+margin_right = 1019.15
+margin_bottom = 159.027
+custom_fonts/font = SubResource( 3 )
+text = "NAME_OF_THE_GAME"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="name_of_game" type="Label" parent="fg/menu/name_of_game"]
+show_behind_parent = true
+margin_left = 4.97706
+margin_top = -4.97253
+margin_right = 1018.98
+margin_bottom = 159.027
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "NAME_OF_THE_GAME"
+align = 1
+valign = 1
+
+[node name="anim" type="AnimationPlayer" parent="fg/menu/name_of_game"]
+autoplay = "def"
+playback_speed = 3.0
+anims/def = SubResource( 4 )
+
+[node name="change_language" type="TouchScreenButton" parent="fg/menu"]
+modulate = Color( 1, 1, 1, 0.431373 )
+position = Vector2( 10, 530 )
+normal = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="start_game" type="TouchScreenButton" parent="fg/menu"]
+position = Vector2( 512, 428 )
+shape = SubResource( 6 )
+shape_centered = false
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="lbl" type="Label" parent="fg/menu/start_game"]
+self_modulate = Color( 0.886333, 0.00178302, 0.944387, 1 )
+margin_left = -100.0
+margin_top = -49.0
+margin_right = 103.0
+margin_bottom = 49.0
+rect_pivot_offset = Vector2( 118, 0 )
+custom_fonts/font = SubResource( 7 )
+text = "START_GAME"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="button_anim" type="AnimationPlayer" parent="fg/menu/start_game/lbl"]
+root_node = NodePath("../..")
+autoplay = "def"
+anims/def = SubResource( 8 )
+
+[node name="highscore_menu" type="Label" parent="fg/menu"]
+margin_top = 176.0
+margin_right = 1024.0
+margin_bottom = 311.0
+custom_fonts/font = SubResource( 22 )
+text = "MAX_SCORE"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="money" type="Label" parent="fg/menu"]
+margin_top = 428.0
+margin_right = 1024.0
+margin_bottom = 604.0
+custom_fonts/font = SubResource( 23 )
+text = "MONEY"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="weapon_shop" type="Control" parent="fg/menu"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="buy_choose_sword" type="TouchScreenButton" parent="fg/menu/weapon_shop"]
+position = Vector2( 730, 105 )
+shape = SubResource( 28 )
+
+[node name="name" type="Label" parent="fg/menu/weapon_shop/buy_choose_sword"]
+modulate = Color( 0.260026, 0.917546, 0.0824536, 1 )
+margin_right = 198.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 26 )
+text = "BUY_SWORD"
+autowrap = true
+
+[node name="anim" type="AnimationPlayer" parent="fg/menu/weapon_shop/buy_choose_sword/name"]
+autoplay = "def"
+anims/def = SubResource( 30 )
+
+[node name="choose_blaster" type="TouchScreenButton" parent="fg/menu/weapon_shop"]
+position = Vector2( 730, 254 )
+shape = SubResource( 29 )
+
+[node name="name" type="Label" parent="fg/menu/weapon_shop/choose_blaster"]
+modulate = Color( 0.500341, 0.427304, 0.572696, 1 )
+margin_right = 214.0
+margin_bottom = 106.0
+custom_fonts/font = SubResource( 27 )
+text = "BLASTER"
+autowrap = true
+
+[node name="anim" type="AnimationPlayer" parent="fg/menu/weapon_shop/choose_blaster/name"]
+autoplay = "def"
+anims/def = SubResource( 31 )
+
+[node name="cosmetics" type="Control" parent="fg/menu"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="open" type="TouchScreenButton" parent="fg/menu/cosmetics"]
+position = Vector2( 70, 105 )
+shape = SubResource( 33 )
+
+[node name="name" type="Label" parent="fg/menu/cosmetics/open"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.8, 0, 1, 1 )
+custom_fonts/font = SubResource( 32 )
+text = "COSMETICS"
+
+[node name="body" type="Control" parent="fg/menu/cosmetics"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="cosmetic_button" parent="fg/menu/cosmetics/body" instance=ExtResource( 7 )]
+position = Vector2( 163, 279 )
+skin = ExtResource( 8 )
+skin_name = "base"
+
+[node name="cosmetic_button2" parent="fg/menu/cosmetics/body" instance=ExtResource( 7 )]
+position = Vector2( 332, 279 )
+skin = ExtResource( 9 )
+cost = 500
+skin_name = "zombie"
+
+[node name="cosmetic_button3" parent="fg/menu/cosmetics/body" instance=ExtResource( 7 )]
+position = Vector2( 512, 279 )
+skin = ExtResource( 11 )
+cost = 1500
+skin_name = "spaceship"
+
+[node name="cosmetic_button4" parent="fg/menu/cosmetics/body" instance=ExtResource( 7 )]
+position = Vector2( 692, 279 )
+skin = ExtResource( 10 )
+cost = 2000
+skin_name = "santa"
+
+[node name="cosmetic_button5" parent="fg/menu/cosmetics/body" instance=ExtResource( 7 )]
+position = Vector2( 861, 279 )
+skin = ExtResource( 12 )
+cost = 2500
+skin_name = "cameraman"
+
+[node name="cosmetic_button6" parent="fg/menu/cosmetics/body" instance=ExtResource( 7 )]
+position = Vector2( 163, 428 )
+skin = ExtResource( 13 )
+cost = 3000
+skin_name = "demon"
+
+[node name="cosmetic_button7" parent="fg/menu/cosmetics/body" instance=ExtResource( 7 )]
+position = Vector2( 332, 428 )
+skin = ExtResource( 17 )
+cost = 3500
+skin_name = "red_mist"
+
+[node name="cosmetic_button8" parent="fg/menu/cosmetics/body" instance=ExtResource( 7 )]
+position = Vector2( 512, 428 )
+skin = ExtResource( 15 )
+cost = 4000
+skin_name = "gods_soldier"
+
+[node name="cosmetic_button9" parent="fg/menu/cosmetics/body" instance=ExtResource( 7 )]
+position = Vector2( 692, 428 )
+skin = ExtResource( 16 )
+cost = 4500
+skin_name = "camo"
+
+[node name="cosmetic_button10" parent="fg/menu/cosmetics/body" instance=ExtResource( 7 )]
+position = Vector2( 861, 428 )
+skin = ExtResource( 14 )
+cost = 5000
+skin_name = "space_dude"
+
+[node name="sounds_and_music" type="Control" parent="fg/menu"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="sfx" type="TouchScreenButton" parent="fg/menu/sounds_and_music"]
+position = Vector2( 10, 407 )
+normal = ExtResource( 21 )
+
+[node name="spr" type="Sprite" parent="fg/menu/sounds_and_music/sfx"]
+visible = false
+texture = ExtResource( 22 )
+centered = false
+
+[node name="music" type="TouchScreenButton" parent="fg/menu/sounds_and_music"]
+position = Vector2( 122, 407 )
+normal = ExtResource( 23 )
+
+[node name="spr" type="Sprite" parent="fg/menu/sounds_and_music/music"]
+visible = false
+texture = ExtResource( 22 )
+centered = false
+
+[node name="game" type="Control" parent="fg"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="score" type="Label" parent="fg/game"]
+margin_top = 356.0
+margin_right = 1024.0
+margin_bottom = 477.0
+custom_colors/font_color = Color( 0.0941176, 0, 1, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "SCORE"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="screen_cover" type="ColorRect" parent="fg"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="def" type="AnimationPlayer" parent="fg/screen_cover"]
+autoplay = "start"
+anims/start = SubResource( 21 )
+
+[node name="death_screen" type="Control" parent="fg"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="lbl" type="Label" parent="fg/death_screen"]
+self_modulate = Color( 0.843345, 0.805137, 1, 1 )
+margin_top = 154.0
+margin_right = 1024.0
+margin_bottom = 372.0
+custom_fonts/font = SubResource( 13 )
+text = "GAME_OVER"
+align = 1
+valign = 1
+
+[node name="def" type="AnimationPlayer" parent="fg/death_screen/lbl"]
+autoplay = "def"
+anims/def = SubResource( 14 )
+
+[node name="highscore" type="Label" parent="fg/death_screen"]
+visible = false
+modulate = Color( 0.892783, 1, 0.88061, 1 )
+margin_left = 5.0
+margin_top = 445.0
+margin_right = 1029.0
+margin_bottom = 604.0
+custom_fonts/font = SubResource( 15 )
+text = "NEW_HIGHSCORE"
+align = 1
+valign = 1
+
+[node name="def" type="AnimationPlayer" parent="fg/death_screen/highscore"]
+autoplay = "def"
+anims/def = SubResource( 16 )
+
+[node name="restart" type="TouchScreenButton" parent="fg/death_screen"]
+position = Vector2( 797, 446 )
+shape = SubResource( 17 )
+shape_centered = false
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="lbl" type="Label" parent="fg/death_screen/restart"]
+margin_left = -67.0
+margin_top = -39.0
+margin_right = 77.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 24 )
+text = "RESTART"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="revive" type="TouchScreenButton" parent="fg/death_screen"]
+position = Vector2( 229, 446 )
+shape = SubResource( 17 )
+shape_centered = false
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="lbl" type="Label" parent="fg/death_screen/revive"]
+margin_left = -143.0
+margin_top = -50.0
+margin_right = 137.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 25 )
+text = "CONTINUE"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="death" type="AnimationPlayer" parent="fg/death_screen"]
+anims/RESET = SubResource( 12 )
+anims/death = SubResource( 11 )
+anims/restart = SubResource( 20 )
+anims/revive = SubResource( 19 )
+
+[node name="animations" type="Node" parent="."]
+
+[node name="start_end_anim" type="AnimationPlayer" parent="animations"]
+root_node = NodePath("../../fg/menu/start_game")
+anims/RESET = SubResource( 9 )
+anims/start = SubResource( 5 )
+
+[node name="sounds" type="Node" parent="."]
+
+[node name="music" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource( 18 )
+volume_db = -5.0
+autoplay = true
+bus = "Music"
+
+[node name="accept" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource( 19 )
+bus = "SFX"
+
+[node name="deny" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource( 20 )
+bus = "SFX"
+
+[connection signal="timeout" from="timers/enemy_timer" to="." method="_on_slider_timer_timeout"]
+[connection signal="timeout" from="timers/camera_shake_timer" to="." method="_on_camera_shake_timer_timeout"]
+[connection signal="timeout" from="timers/add_difficulty_timer" to="." method="_on_add_difficulty_timer_timeout"]
+[connection signal="pressed" from="fg/menu/change_language" to="." method="_on_change_language_pressed"]
+[connection signal="pressed" from="fg/menu/start_game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="fg/menu/weapon_shop/buy_choose_sword" to="." method="_on_buy_choose_sword_pressed"]
+[connection signal="pressed" from="fg/menu/weapon_shop/choose_blaster" to="." method="_on_choose_blaster_pressed"]
+[connection signal="pressed" from="fg/menu/cosmetics/open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="fg/menu/sounds_and_music/sfx" to="." method="_on_sfx_pressed"]
+[connection signal="pressed" from="fg/menu/sounds_and_music/music" to="." method="_on_music_pressed"]
+[connection signal="pressed" from="fg/death_screen/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="fg/death_screen/revive" to="." method="_on_revive_pressed"]
